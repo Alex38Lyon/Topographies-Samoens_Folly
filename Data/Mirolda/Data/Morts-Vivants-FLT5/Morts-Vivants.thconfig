@@ -99,7 +99,7 @@ layout my_layout
   # Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
   # Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
   # ou une autre combination...
-  map-header 0 100 nw
+  map-header 25 83 nw
 
   # arrière plan de la manchette
   map-header-bg off
@@ -111,7 +111,7 @@ layout my_layout
   legend-width 21 cm
   # Un commentaire à ajounter au titule, on pourrait indiquer ici la mairie où est placée la cavité
   # dont le nom est probablement le titule de la topo.
-  map-comment "Massif cu Criou, Samoëns, 74, France"
+  map-comment "<it>Plan - <ss>Massif du Criou, Samoëns, 74, France"
  
   # Afficher les statistiques d'explo/topo par équipe/nom. C'est lourd
   # si la cavité est importante et qu'il y a beaucoup d'explorateurs/topogrpahes.
@@ -146,7 +146,7 @@ layout my_layout
 			\cavename={Gouffre des Morts-Vivants - FLT5} 
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\newtoks\club \club={FLT (1974), Collectif Mirolda (2023)}
+		\newtoks\club \club={FLT (1974), URSUS (1986), Collectif Mirolda (2023)}
 		%\newtoks\synth \synth={Xavier Robert}
 	endcode   
   
@@ -178,7 +178,7 @@ layout layout-coupe
   scale-bar 150 m
 
   # Voici une ligne pour specifier qu'il faut imprimer une grille au dessous de la topo
-  grid-size 200 200 50 m  
+  grid-size 200 200 200 m  
   grid bottom
   grid-coords border
   
@@ -202,7 +202,9 @@ layout layout-coupe
   # Il faut specifier un de ces points comme ce que sera placé sur les cordonnées.
   # Alors nous pouvons specifier que le sud-ouest de la manchette soit placé en bas, a gauche,
   # ou une autre combination...
-  map-header 100 100 ne
+  ####map-header 100 100 ne
+  map-header 100 27 se # OK pour rapport !
+  #map-header 0 0 nw
 
   # arrière plan de la manchette
   map-header-bg on
@@ -214,7 +216,7 @@ layout layout-coupe
   legend-width 21 cm
   # Un commentaire à ajounter au titule, on pourrait indiquer ici la mairie où est placée la cavité
   # dont le nom est probablement le titule de la topo.
-  map-comment "Massif du Criou, Samoëns, 74, France"
+  map-comment "<it>Coupe développée - <ss>Massif du Criou, Samoëns, 74, France"
  
   # Afficher les statistiques d'explo/topo par équipe/nom. C'est lourd
   # si la cavité est importante et qu'il y a beaucoup d'explorateurs/topogrpahes.
@@ -230,8 +232,8 @@ layout layout-coupe
 	symbol-hide point rope
   #symbol-hide point station        
   #debug scrap-names
-  debug station-names
-  #symbol-hide line survey
+  #debug station-names
+  symbol-hide line survey
 
   layers on
 
@@ -249,7 +251,7 @@ layout layout-coupe
 			\cavename={Gouffre des Morts-Vivants - FLT5} 
 		\else % if not empty keep the value set by therion, or assign an override cavename here
 		\fi
-		\newtoks\club \club={FLT (1974), Collectif Mirolda (2023)}
+		\newtoks\club \club={FLT (1974), URSUS (1986), Collectif Mirolda (2023)}
 		%\newtoks\synth \synth={Xavier Robert}
 	endcode   
   
@@ -361,7 +363,7 @@ select MC-Morts-Vivants-coupe@Morts-Vivants
 
 # Export des fichiers pdf, plan et coupe. 
 # ATTENTION, la topo étant énorme, il faut mettre l'option ne traçant pas la centerline !
- export map -proj plan -fmt pdf -o Outputs/Morts-Vivants-plan.pdf -layout my_layout
+# export map -proj plan -fmt pdf -o Outputs/Morts-Vivants-plan.pdf -layout my_layout
  export map -projection extended -fmt pdf -layout layout-coupe -o Outputs/Morts-Vivants-coupe.pdf
 #export atlas -o Outputs/Criou-atlas.pdf -layout atlas_layout
 
@@ -373,8 +375,8 @@ select MC-Morts-Vivants-coupe@Morts-Vivants
  export map -proj plan -fmt esri -o Outputs/Morts-Vivants -layout my_layout
 
 # Export des fichiers kml
- export map -proj plan -fmt kml -o Outputs/Morts-Vivants.kml -layout layout-kml
- export model -fmt kml -o Outputs/Morts-Vivants-model.kml -enable all
+# export map -proj plan -fmt kml -o Outputs/Morts-Vivants.kml -layout layout-kml
+# export model -fmt kml -o Outputs/Morts-Vivants-model.kml -enable all
 
 # Export de la database sql
 # export des statistiques de l'ensemble de la cavité
@@ -384,5 +386,5 @@ select MC-Morts-Vivants-coupe@Morts-Vivants
 
 #export continuation-list -o Outputs/ContinuationsMorts-Vivants.html
 #export continuation-list -o Outputs/ContinuationsMorts-Vivants.kml
-export survey-list -location on -o Outputs/SurveysMorts-Vivants.html
+#export survey-list -location on -o Outputs/SurveysMorts-Vivants.html
 #export cave-list -location on -o Outputs/CavesMorts-Vivants.html
