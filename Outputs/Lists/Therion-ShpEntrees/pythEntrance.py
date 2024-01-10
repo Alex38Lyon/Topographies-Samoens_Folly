@@ -186,7 +186,7 @@ def ThExtractEntrances(inputfile, systems, caves, crs):
 				exploredMirolda = line.split('\t')[3]
 			else:
 				exploredMirolda = 0
-		elif 'Gouffre Mirolda - Réseau Lucien Bouclier' in line:
+		elif 'Gouffre des Morts-Vivants - FLT5' in line:
 			develMV = line.split('\t')[1]
 			denivMV = line.split('\t')[2]
 			if line.split('\t')[3] != '':
@@ -304,6 +304,12 @@ def ThExtractEntrances(inputfile, systems, caves, crs):
 						'Explored': exploredMirolda,
 						'Deniv'   : denivMirolda,
 						'Point'   : [328410, 5106383]},	#crs = 32632	# UTM32N
+				'MV': {'Nom' : 'Gouffre des Morts-Vivants - FLT5',
+						'System'  : 'Système du Criou', 
+						'Devel'   : develMV,
+						'Explored': exploredMV,
+						'Deniv'   : denivMV,
+						'Point'   : [328663, 5105646]},	#crs = 32632	# UTM32N
 				'AOddaz': {'Nom'     : "Antre d'Oddaz",
 						   'System'  : 'Système du Tuet', 
 						   'Devel'   : develOddaz,
